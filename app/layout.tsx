@@ -1,6 +1,5 @@
-import '@/app/components/global.css';
-import { inter } from '@/app/components/fonts';
-import AuthProviders from '@/app/providers/auth-providers';
+import '@/components/global.css'
+import { inter } from '@/components/fonts';
 
 export default function RootLayout({
   children,
@@ -9,10 +8,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-white antialiased`}>
-        <AuthProviders>
-          <div className="h-screen">{children}</div>
-        </AuthProviders>
+      <body className={`${inter.className} bg-white h-full antialiased`}>
+        {children}
       </body>
     </html>
   );

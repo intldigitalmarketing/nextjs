@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import FormikPost from './form';
-import { PostField } from '@/app/lib/interface';
+import { PostField } from '@/lib/interface';
 
 export default function AddPost() {
   const [modal, setModal] = useState(false);

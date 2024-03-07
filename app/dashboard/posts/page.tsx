@@ -1,5 +1,5 @@
-import Breadcrumb from '@/app/components/dashboard/breadcrumb';
-import { PostField } from '@/app/lib/interface';
+import Breadcrumb from '@/components/dashboard/breadcrumb';
+import { PostField } from '@/lib/interface';
 import AddPost from './add';
 import EditPost from './edit';
 import DeletePost from './delete';

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { PostField } from '@/app/lib/interface';
+import { PostField } from '@/lib/interface';
 import { toast } from 'react-toastify';
 
 export default function DeletePost(post: PostField) {

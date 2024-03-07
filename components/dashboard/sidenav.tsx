@@ -1,6 +1,6 @@
 'use client';
 
-import AcmeLogo from '@/app/components/acme-logo';
+import AcmeLogo from '@/components/acme-logo';
 import {
   CircleStackIcon,
   HomeIcon,
@@ -9,7 +9,7 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import ThemeSwap from '@/app/components/dashboard/themebtn';
+import ThemeSwap from '@/components/dashboard/themebtn';
 
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { BreadcrumbItem } from '@/app/lib/interface';
+import { BreadcrumbItem } from '@/lib/interface';
 
 export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   return (

@@ -1,17 +1,21 @@
 import { Suspense } from 'react';
 import Loading from './loading';
-import SideNav from '@/app/components/dashboard/sidenav';
-import ThemeProviders from '@/app/providers/theme-providers';
-import ToastProviders from '@/app/providers/toast-providers';
+import SideNav from '@/components/dashboard/sidenav';
+import ThemeProviders from '@/providers/theme-providers';
+import { ToastContainer } from 'react-toastify';
+import { auth } from '@/auth'
+import { SessionProvider } from 'next-auth/react'
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await auth();
+
   return (
-    <ThemeProviders>
-      <ToastProviders>
+    <SessionProvider session={session}>
+      <ThemeProviders>
         <div className="bg-white dark:bg-gray-800">
           <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
             <div className="w-full flex-none md:w-64">
@@ -22,7 +26,8 @@ export default function DashboardLayout({
             </div>
           </div>
         </div>
-      </ToastProviders>
-    </ThemeProviders>
+        <ToastContainer position="top-right" autoClose={5000} />
+      </ThemeProviders>
+    </SessionProvider>
   );
 }

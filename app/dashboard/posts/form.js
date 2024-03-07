@@ -1,5 +1,5 @@
 import { Formik, Form, FormikHelpers } from 'formik';
-import FormControl from '@/app/components/dashboard/formik/form-control';
+import FormControl from '@/components/dashboard/formik/form-control';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';

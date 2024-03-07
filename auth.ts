@@ -3,6 +3,10 @@ import type { NextAuthConfig } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const config = {
+  pages: {
+    signIn: '/auth/login',
+    error: '/auth/error',
+  },
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -33,21 +37,12 @@ export const config = {
       },
     }),
   ],
-  // basePath: '/auth',
-  // callbacks: {
-  //   authorized({ request, auth }) {
-  //     const { pathname } = request.nextUrl;
-  //     // console.log(pathname);
-  //     return true;
-  //   },
-  //   jwt({ token, trigger, session }) {
-  //     if (trigger === 'update') token.name = session.user.name;
-  //     return token;
-  //   },
-  // },
+  session: { strategy: 'jwt' },
 } satisfies NextAuthConfig;
 
 export const {
   handlers: { GET, POST },
   auth,
 } = NextAuth(config);
+
+

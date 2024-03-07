@@ -1,4 +1,4 @@
-import Breadcrumb from '@/app/components/dashboard/breadcrumb';
+import Breadcrumb from '@/components/dashboard/breadcrumb';
 
 const title = 'Home';
 const breadcrumbItems = [{ text: title, href: '#' }];
