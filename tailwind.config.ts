@@ -27,6 +27,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('daisyui')],
+  darkMode: 'class',
 };
 export default config;
