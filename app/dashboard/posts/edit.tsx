@@ -3,27 +3,18 @@
 import { useState } from 'react';
 import FormikPost from './form';
 import { PostField } from '@/lib/interface';
+import { Button } from 'flowbite-react';
 
 export default function EditPost(post: PostField) {
   const [modal, setModal] = useState(false);
 
-  function handleChange() {
-    setModal(!modal);
-  }
-
   return (
     <>
       <div>
-        <button className="btn btn-warning btn-xs" onClick={handleChange}>
+        <Button size="xs" onClick={() => setModal(true)}>
           Edit
-        </button>
-        <input
-          type="checkbox"
-          checked={modal}
-          onChange={handleChange}
-          className="modal-toggle"
-        />
-        <FormikPost data={post} closeModal={handleChange} />
+        </Button>
+        <FormikPost data={post} modal={modal} setModal={setModal} />
       </div>
     </>
   );

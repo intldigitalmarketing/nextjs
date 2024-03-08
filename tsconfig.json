@@ -32,11 +32,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "app/lib/placeholder-data.js",
-    "scripts/seed.js",
-    "app/dashboard/posts/provider.tsx",
-    "app/dashboard/posts/form.tsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

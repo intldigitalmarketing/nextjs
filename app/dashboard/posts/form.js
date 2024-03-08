@@ -1,10 +1,12 @@
-import { Formik, Form, FormikHelpers } from 'formik';
+import { Formik, Form } from 'formik';
 import FormControl from '@/components/dashboard/formik/form-control';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import { Modal, Button } from 'flowbite-react';
+import { savePost } from '@/actions/posts';
 
-export default function FormikPost({ data, closeModal }) {
+export default function FormikPost({ data, modal, setModal }) {
   const router = useRouter();
 
   const defaultFieldValue = {
@@ -22,10 +24,6 @@ export default function FormikPost({ data, closeModal }) {
   });
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    const method = values._id === 0 ? 'POST' : 'PUT';
-    const pathUrl = values._id === 0 ? '/posts' : '/posts/' + values._id;
-    const fullUrl = process.env.DASHBOARD_BASE_URL_API + pathUrl;
-
     let messageSuccess, messageError;
 
     if (values._id === 0) {
@@ -37,15 +35,7 @@ export default function FormikPost({ data, closeModal }) {
     }
 
     try {
-      delete values['_id'];
-
-      const response = await fetch(fullUrl, {
-        method: method,
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await savePost(values);
 
       if (!response.ok) {
         toast.error('Network response was not ok');
@@ -56,24 +46,17 @@ export default function FormikPost({ data, closeModal }) {
       toast.error(messageError);
     }
 
-    closeModal();
+    setModal(false);
     resetForm();
     router.refresh();
+    setSubmitting();
   };
 
   return (
     <>
-      <div className="modal">
-        <div className="modal-box bg-white dark:bg-gray-800 dark:text-white">
-          <button
-            className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2"
-            onClick={closeModal}
-          >
-            ✕
-          </button>
-          <div className="mb-5">
-            <h3 className="text-lg font-bold">{modalTitle}</h3>
-          </div>
+      <Modal show={modal} onClose={() => setModal(false)}>
+        <Modal.Header>{modalTitle}</Modal.Header>
+        <Modal.Body>
           <Formik
             enableReinitialize={true}
             initialValues={defaultFieldValue}
@@ -96,21 +79,19 @@ export default function FormikPost({ data, closeModal }) {
                   name="body"
                 />
                 <div>
-                  <button
+                  <Button
                     type="submit"
-                    className={`btn btn-success ${
-                      !formik.isValid ? 'not-allowed' : ''
-                    }`}
+                    className={`${!formik.isValid ? 'not-allowed' : ''}`}
                     disabled={!formik.isValid || formik.isSubmitting}
                   >
                     {formik.values._id === 0 ? 'Create' : 'Update'}
-                  </button>
+                  </Button>
                 </div>
               </Form>
             )}
           </Formik>
-        </div>
-      </div>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }

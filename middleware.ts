@@ -15,35 +15,32 @@ export default auth((req) => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
+  let origin = nextUrl.origin;
+  let href = nextUrl.href;
+
+  const encodedCallbackUrl = encodeURIComponent(href);
+
   if (isApiAuthRoute) {
     return;
   }
 
   if (isAuthRoute) {
     if (isLoggedIn) {
-      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl))
+      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
     return;
   }
 
-  // if (!isLoggedIn && !isPublicRoute) {
-  //   let callbackUrl = nextUrl.pathname;
-  //   if (nextUrl.search) {
-  //     callbackUrl += nextUrl.search;
-  //   }
-
-  //   const encodedCallbackUrl = encodeURIComponent(callbackUrl);
-
-  //   return Response.redirect(new URL(
-  //     `api/auth/signin?callbackUrl=${encodedCallbackUrl}`,
-  //     nextUrl
-  //   ));
-  // }
+  if (!isLoggedIn && !isPublicRoute) {
+    return Response.redirect(
+      `${origin}/auth/login?callbackUrl=${encodedCallbackUrl}`,
+    );
+  }
 
   return;
-})
+});
 
 // Optionally, don't invoke Middleware on some paths
 export const config = {
   matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
-}
+};
