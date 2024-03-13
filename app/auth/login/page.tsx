@@ -9,7 +9,6 @@ import FormControl from '@/components/dashboard/formik/form-control';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { Button } from 'flowbite-react';
-import { Suspense } from 'react';
 
 export default function LoginPage() {
   const router = useRouter();
