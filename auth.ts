@@ -90,7 +90,7 @@ export const config = {
       },
     }),
   ],
-  session: { strategy: 'jwt' },
+  session: { strategy: 'jwt', maxAge: 60 * 60 * 2 },
 } satisfies NextAuthConfig;
 
 export const {

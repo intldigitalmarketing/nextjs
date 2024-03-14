@@ -1,4 +1,5 @@
 import Breadcrumb from '@/components/dashboard/breadcrumb';
+import { auth } from '@/auth';
 
 const title = 'Home';
 const breadcrumbItems = [{ text: title, href: '#' }];
@@ -9,6 +10,8 @@ export const metadata = {
 };
 
 export default async function Page() {
+  const session = await auth();
+
   return (
     <>
       <div className="h-full">
@@ -25,7 +28,9 @@ export default async function Page() {
         <div className="min-h-max rounded-md bg-gray-100 p-3 text-black">
           <div className="w-full scroll-auto">
             <div className="relative overflow-x-auto">
-              <div>Content</div>
+              <div>
+                <pre>{JSON.stringify(session, null, 2)}</pre>
+              </div>
             </div>
           </div>
         </div>

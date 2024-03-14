@@ -56,7 +56,7 @@ export default async function Page() {
                     <th scope="col" className="px-6 py-3">
                       Body
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 text-center">
                       Actions
                     </th>
                   </tr>
@@ -67,10 +67,8 @@ export default async function Page() {
                       <td className="px-6 py-4">{post._id}</td>
                       <td className="px-6 py-4">{post.title}</td>
                       <td className="px-6 py-4">{post.body}</td>
-                      <td className="flex px-6 py-4">
-                        <div className="mr-1">
-                          <EditPost {...post} />
-                        </div>
+                      <td className="flex gap-2 px-6 py-4 place-content-center">
+                        <EditPost {...post} />
                         <DeletePost {...post} />
                       </td>
                     </tr>
