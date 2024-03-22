@@ -8,7 +8,7 @@ function Radio(props) {
     <div className="">
       <label
         htmlFor={name}
-        className="mb-2 block text-base font-medium text-gray-900 dark:text-white"
+        className="mb-2 block text-base font-medium text-gray-900 dark:text-gray-200"
       >
         {label}
       </label>

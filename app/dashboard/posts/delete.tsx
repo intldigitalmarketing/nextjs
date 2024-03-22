@@ -40,7 +40,7 @@ export default function DeletePost(post: PostField) {
         <Modal.Header>Delete #{post._id}</Modal.Header>
         <Modal.Body>
           <div className="mb-3">
-            <p className="text-black dark:text-white">
+            <p className="text-black dark:text-gray-200">
               Are you sure want to delete this post?
             </p>
           </div>
