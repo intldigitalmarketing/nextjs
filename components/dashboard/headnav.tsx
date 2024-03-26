@@ -15,13 +15,13 @@ export default function HeadNav({
   return (
     <>
       <div className="rounded-2xl bg-white dark:bg-black p-4 text-black dark:text-gray-200">
-        <div className="border-b-5 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-4">
-          <div className="flex items-center">
-            <div className="min-w-[200px] text-start">
+        <div className="border-b-5 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-1 md:gap-4">
+          <div className="flex flex-wrap lg:flex-nowrap w-full items-center gap-1 md:gap-4">
+            <div className="basis-1/4 min-w-[200px] text-start">
               <h1 className="text-xl font-semibold">{title}</h1>
               {subTitle && <p>{subTitle}</p>}
             </div>
-            <div className="lg:min-w-[380px] w-full lg:w-fit items-center">
+            <div className="lg:min-w-[380px] w-full xl:w-fit items-center">
               <form className="w-full mx-auto items-center">
                 <label className="mb-2 text-sm font-medium text-black sr-only dark:text-gray-200">
                   Search
@@ -44,8 +44,7 @@ export default function HeadNav({
               </form>
             </div>
           </div>
-          <div className="w-full"></div>
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row flex-wrap lg:flex-nowrap gap-3">
             <div className="flex h-[48px]">
               <DarkThemeToggle />
             </div>
@@ -59,7 +58,7 @@ export default function HeadNav({
                 <FaRegBell size="30px" />
               </button>
             </div>
-            <div className="w-full min-w-[180px]">
+            <div className="w-fit min-w-[180px]">
               <CountryDropdown />
             </div>
           </div>

@@ -14,11 +14,11 @@ export default async function DashboardLayout({
   return (
     <SessionProvider session={session}>
       <div className="bg-[#dcdcdc] dark:bg-[#1f1f1f]">
-        <div className="flex h-full min-h-screen flex-col md:flex-row w-full">
-          <div className="flex-none md:w-60 bg-white dark:bg-black m-4 rounded-2xl mb-0 md:mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 h-full min-h-screen w-full">
+          <div className="col-span-1 md:col-span-4 lg:col-span-3 xl:col-span-2 bg-white dark:bg-black m-4 rounded-2xl mb-0 md:mb-4">
             <SideNav />
           </div>
-          <div className="flex flex-col gap-4 flex-grow m-4 pt-0 md:ms-0">
+          <div className="col-span-1 md:col-span-8 lg:col-span-9 xl:col-span-10 flex flex-col gap-4 flex-grow m-4 pt-0 md:ms-0">
             <Suspense fallback={<Loading />}>{children}</Suspense>
           </div>
         </div>

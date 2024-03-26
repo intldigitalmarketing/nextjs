@@ -20,28 +20,26 @@ export default async function Page() {
     <>
       <HeadNav title="Hello Gokul" subTitle="Welcome Back!" />
       <CardTodaySales />
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="col-span-2 md:col-span-1">
+      <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="col-span-2 lg:col-span-1">
           <CardWeeklySales />
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 md:col-span-2 lg:col-span-1">
           <CardSales />
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 md:col-span-2 lg:col-span-1">
           <CardProfit />
         </div>
-        <div className="col-span-2 md:col-span-1">
+        <div className="col-span-2 lg:col-span-1">
           <CardProductClass />
         </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="">
+        <div className="col-span-2 lg:col-span-1">
           <CardCustomerSatisfaction />
         </div>
-        <div className="col-span-1 md:col-span-2">
+        <div className="col-span-2 lg:col-span-2">
           <CardRecentOrders />
         </div>
-        <div className="">
+        <div className="col-span-2 lg:col-span-1">
           <CardSalesTarget />
         </div>
       </div>
