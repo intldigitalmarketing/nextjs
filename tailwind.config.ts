@@ -8,7 +8,11 @@ const config: Config = {
 
     'node_modules/flowbite-react/lib/esm/**/*.js',
   ],
-  plugins: [require('flowbite/plugin')],
+  plugins: [
+    require('flowbite/plugin')({
+      charts: true,
+    }),
+  ],
   darkMode: 'class',
 };
 

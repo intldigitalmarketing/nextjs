@@ -7,7 +7,7 @@ import { IoTriangle } from 'react-icons/io5';
 import dynamic from 'next/dynamic';
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-export default function CardSales() {
+export default function CardProfit() {
   const option = {
     chart: {
       id: 'apexchart-example',
@@ -30,8 +30,8 @@ export default function CardSales() {
       gradient: {
         opacityFrom: 0.8,
         opacityTo: 0,
-        shade: '#1C64F2',
-        gradientToColors: ['#1C64F2'],
+        shade: '#32e09f',
+        gradientToColors: ['#32e09f'],
       },
     },
     dataLabels: {
@@ -76,9 +76,9 @@ export default function CardSales() {
 
   const series = [
     {
-      name: 'Sales',
-      data: [440, 441, 442, 441, 442, 443],
-      color: '#1A56DB',
+      name: 'Profit',
+      data: [97000, 97100, 97800, 97700, 97800, 97700],
+      color: '#32e09f',
     },
   ];
 
@@ -88,7 +88,7 @@ export default function CardSales() {
         <div className="w-full scroll-auto flex flex-col gap-1">
           <div className="flex justify-between mb-1">
             <div className="">
-              <h1 className="text-xl font-semibold">Sales</h1>
+              <h1 className="text-xl font-semibold">Profit</h1>
             </div>
             <div className="flex relative gap-2 items-center">
               <div className="absolute bg-[#c4f1e2] p-2 w-[30px] h-[30px] flex justify-center items-center rounded-full right-2">
@@ -104,16 +104,13 @@ export default function CardSales() {
             width="100%"
             className="max-h-min"
           />
-          {/* <div className="relative overflow-hidden bg-blue-500 rounded-lg py-8 px-12">
-            <div className="absolute inset-0 w-full h-full animate-wave bg-gradient-to-r from-blue-700 to-blue-500 opacity-25"></div>
-          </div> */}
-          <div className="font-semibold text-xl">446</div>
-          <div>Number of sales</div>
+          <div className="font-semibold text-xl">₹ 97,287</div>
+          <div>Profit by sale</div>
           <div className="flex flex-row gap-4 items-center justify-center">
             <span className="bg-[#dde9ec] p-1 rounded-full">
               <IoMdCloseCircle color="#5ca2f5" />
             </span>
-            <span>36%</span>
+            <span>27%</span>
             <span>
               <IoTriangle color="#53e4b1" />
             </span>

@@ -1,9 +1,14 @@
 import CardTodaySales from '@/components/dashboard/card-today-sales';
 import CardWeeklySales from '@/components/dashboard/card-weekly-sales';
 import CardSales from '@/components/dashboard/card-sales';
+import CardProfit from '@/components/dashboard/card-profit';
+import CardProductClass from '@/components/dashboard/card-product-class';
+import HeadNav from '@/components/dashboard/headnav';
+import CardRecentOrders from '@/components/dashboard/card-recent-orders';
+import CardCustomerSatisfaction from '@/components/dashboard/card-customer-satisfaction';
+import CardSalesTarget from '@/components/dashboard/card-sales-target';
 
-const title = 'Dashboard';
-const breadcrumbItems = [{ text: title, href: '#' }];
+// const breadcrumbItems = [{ text: title, href: '#' }];
 
 export const metadata = {
   title: 'Dashboard',
@@ -13,13 +18,31 @@ export const metadata = {
 export default async function Page() {
   return (
     <>
+      <HeadNav title="Hello Gokul" subTitle="Welcome Back!" />
       <CardTodaySales />
-      <div className="flex md:flex md:flex-wrap gap-4">
-        <div className="w-full min-w-fit md:w-1/4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="col-span-2 md:col-span-1">
           <CardWeeklySales />
         </div>
-        <div className="w-full lg:w-1/4">
+        <div className="col-span-1">
           <CardSales />
+        </div>
+        <div className="col-span-1">
+          <CardProfit />
+        </div>
+        <div className="col-span-2 md:col-span-1">
+          <CardProductClass />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="">
+          <CardCustomerSatisfaction />
+        </div>
+        <div className="col-span-1 md:col-span-2">
+          <CardRecentOrders />
+        </div>
+        <div className="">
+          <CardSalesTarget />
         </div>
       </div>
     </>
