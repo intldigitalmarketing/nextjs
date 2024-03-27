@@ -77,7 +77,7 @@ export const config = {
         // This is where you need to retrieve user data
         // to verify with credentials
         // Docs: https://next-auth.js.org/configuration/providers/credentials
-        const user = { id: '1', name: 'Yogsal', password: '123456' };
+        const user = { id: '1', name: 'Admin', password: '123456' };
 
         if (
           credentials?.username === user.name &&
