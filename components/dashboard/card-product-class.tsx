@@ -20,7 +20,12 @@ export default function CardProductClass() {
       position: 'left',
     },
     plotOptions: {
-      pie: { donut: { size: '65%' } },
+      pie: {
+        donut: {
+          size: '46%',
+          background: 'transparent',
+        },
+      },
     },
   };
 

@@ -1,4 +1,5 @@
 import CountryDropdown from '@/components/dashboard/country-dropdown';
+import UserDropdown from '@/components/dashboard/user-dropdown';
 import { FaSearch } from 'react-icons/fa';
 import { MdMicNone } from 'react-icons/md';
 import { PiChatTeardropText } from 'react-icons/pi';
@@ -60,6 +61,9 @@ export default function HeadNav({
             </div>
             <div className="w-fit min-w-[180px]">
               <CountryDropdown />
+            </div>
+            <div className="w-fit min-w-[60px]">
+              <UserDropdown />
             </div>
           </div>
         </div>

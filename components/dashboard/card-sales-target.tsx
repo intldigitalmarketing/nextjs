@@ -14,14 +14,24 @@ export default function CardSalesTarget() {
     },
     plotOptions: {
       radialBar: {
+        inverseOrder: true,
         track: {
           background: '#E5E7EB',
         },
         dataLabels: {
-          show: true,
+          name: {
+            show: false,
+          },
+          value: {
+            show: true,
+            fontSize: '14px',
+            formatter: function (val) {
+              return val + '%';
+            },
+          },
         },
         hollow: {
-          size: '60%',
+          size: '46%',
         },
       },
     },
